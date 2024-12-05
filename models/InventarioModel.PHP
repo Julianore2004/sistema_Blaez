@@ -1,5 +1,5 @@
 <?php
-require_once "library/conexion.php";
+require_once "./library/conexion.php";
 
 class InventarioModel {
     // Insertar nuevo inventario

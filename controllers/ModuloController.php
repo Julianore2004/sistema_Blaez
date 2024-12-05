@@ -1,5 +1,5 @@
 <?php
-require_once "models/ModuloModel.php";
+require_once "./models/ModuloModel.php";
 
 class ModuloController {
     public static function registrarModulo($datos) {

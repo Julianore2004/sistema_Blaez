@@ -1,5 +1,5 @@
 <?php
-require_once "models/InventarioModel.php";
+require_once "./models/InventarioModel.php";
 
 class InventarioController {
     public static function registrarInventario($datos) {
