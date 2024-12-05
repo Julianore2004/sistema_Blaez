@@ -1,5 +1,5 @@
 <?php
-require_once "models/CategoriaModel.php";
+require_once "./models/CategoriaModel.php";
 
 class CategoriaController {
     public static function registrarCategoria($nombre, $descripcion) {

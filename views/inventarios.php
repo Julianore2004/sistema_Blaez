@@ -1,6 +1,6 @@
 
 <?php
-require_once "controllers/InventarioController.php";
+require_once "./controllers/InventarioController.php";
 // Controlador para obtener los inventarios
 $inventarios = InventarioController::listarInventarios();
 ?>

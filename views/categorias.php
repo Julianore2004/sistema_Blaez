@@ -1,5 +1,5 @@
 <?php
-require_once "controllers/CategoriaController.php";
+require_once "./controllers/CategoriaController.php";
 
 // Obtener las categorías
 $categorias = CategoriaController::listarCategorias();

@@ -1,5 +1,5 @@
 <?php
-require_once "controllers/UserController.php";
+require_once "./controllers/UserController.php";
 
 // Obtener los usuarios desde el controlador
 $usuarios = UserController::listarUsuarios();

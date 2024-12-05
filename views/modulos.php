@@ -1,5 +1,5 @@
 <?php
-       require_once "controllers/ModuloController.php";
+       require_once "./controllers/ModuloController.php";
 // Obtener los módulos desde el controlador
 $modulos = ModuloController::listarModulos();
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-require_once "controllers/EstudianteController.php";
+require_once "./controllers/EstudianteController.php";
 // Obtener los estudiantes desde el controlador
 $estudiantes = EstudianteController::listarEstudiantes();
 ?>
