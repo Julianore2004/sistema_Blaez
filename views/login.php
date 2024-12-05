@@ -173,6 +173,9 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
             </div>
+            <li class="nav-item">
+            <a class="nav-link text-white" href="<?php echo BD_URL ?>inicio" style="opacity: 0.9">Usuarios</a>
+          </li>
             <button type="submit" class="btn-login">Iniciar Sesión</button>
         </form>
         <div class="footer-text">
