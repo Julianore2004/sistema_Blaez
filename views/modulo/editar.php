@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/../header.php'; ?>
 <div class="container mt-4">
     <h1>Editar Módulo</h1>
-    <form action="index.php?action=editar_modulo" method="post" enctype="multipart/form-data">
+    <form action="index.php?action=editar_modulo" method="post">
         <input type="hidden" name="id" value="<?php echo $modulo['id']; ?>">
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre:</label>
@@ -20,9 +20,8 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="imagen" class="form-label">Imagen:</label>
-            <input type="file" class="form-control" name="imagen">
-            <img src="<?php echo $modulo['imagen']; ?>" class="img-thumbnail mt-2" alt="<?php echo $modulo['nombre']; ?>">
+            <label for="imagen" class="form-label">URL de la Imagen:</label>
+            <input type="url" class="form-control" name="imagen" value="<?php echo $modulo['imagen']; ?>" required>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>

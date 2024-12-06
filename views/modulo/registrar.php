@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/../header.php'; ?>
 <div class="container mt-4">
     <h1>Registrar Módulo</h1>
-    <form action="index.php?action=registrar_modulo" method="post" enctype="multipart/form-data">
+    <form action="index.php?action=registrar_modulo" method="post">
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre:</label>
             <input type="text" class="form-control" name="nombre" required>
@@ -19,8 +19,8 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="imagen" class="form-label">Imagen:</label>
-            <input type="file" class="form-control" name="imagen" required>
+            <label for="imagen" class="form-label">URL de la Imagen:</label>
+            <input type="url" class="form-control" name="imagen" required>
         </div>
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
