@@ -1,10 +1,8 @@
 <?php
-require_once "./controllers/ModuloController.php";
-
+require_once "controllers/ModuloController.php";
 // Obtener los módulos desde el controlador
 $modulos = ModuloController::listarModulos();
 ?>
-
 <div class="container mt-5">
     <div class="text-end mb-3">
         <a class="btn btn-primary" href="<?php echo BD_URL ?>registrar-modulo">Agregar Módulo</a>
