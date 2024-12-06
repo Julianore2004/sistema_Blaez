@@ -1,3 +1,4 @@
+
 <?php
 require_once "controllers/UserController.php";
 
@@ -7,22 +8,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "firstname" => $_POST["firstname"],
         "lastname" => $_POST["lastname"],
         "user_name" => $_POST["user_name"],
-        "user_password_hash" => $_POST["user_password_hash"],
+        "user_password_hash" => password_hash($_POST["user_password_hash"], PASSWORD_BCRYPT), // Hash de la contraseña
         "user_email" => $_POST["user_email"],
         "rol" => $_POST["rol"],
     ];
 
     $mensaje = UserController::registrarUsuario($datos);
     echo "<script>alert('$mensaje');</script>";
-}   
-
+}
 ?>
-
-
 <form action="" method="POST" class="container mt-4">
     <div class="card">
         <div class="card-header bg-dark text-white">
-            <h4>Registro de Usuarios</h4>
+            <h4>Registro de Usuario</h4>
         </div>
         <div class="card-body">
             <div class="mb-3">
@@ -50,11 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <select class="form-select" id="rol" name="rol">
                     <option value="usuario">Encargado</option>
                     <option value="admin">Administrador</option>
-
                 </select>
             </div>
             <button type="submit" class="btn btn-dark">Registrar Usuario</button>
         </div>
     </div>
-    
 </form>

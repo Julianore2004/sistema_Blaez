@@ -1,4 +1,3 @@
-
 <?php
 require_once "./controllers/InventarioController.php";
 // Controlador para obtener los inventarios
@@ -6,15 +5,15 @@ $inventarios = InventarioController::listarInventarios();
 ?>
 
 <div class="container mt-5">
-<div class="text-end mb-3">
-<a class="btn btn-primary" href="<?php echo BD_URL ?>registrar-inventario">Agregar Nuevo Inventario</a>
-   
-</div>
+    <div class="text-end mb-3">
+        <a class="btn btn-primary" href="<?php echo BD_URL ?>registrar-inventario">Agregar Nuevo Inventario</a>
+
+    </div>
 
     <h2 class="mb-4">Listado de Inventarios</h2>
-    
+
     <table class="table table-striped">
-    <thead class="table-dark">
+        <thead class="table-dark">
             <tr>
                 <th>ID</th>
                 <th>Código Patrimonial</th>
@@ -35,29 +34,29 @@ $inventarios = InventarioController::listarInventarios();
             </tr>
         </thead>
         <tbody class="bg-white">
-            <?php while ($row = $inventarios->fetch_assoc()): ?>
+            <?php foreach ($inventarios as $row): ?>
                 <tr>
-                    <td><?= $row['id'] ?></td>
-                    <td><?= $row['codigo_patrimonial'] ?></td>
-                    <td><?= $row['denominacion'] ?></td>
-                    <td><?= $row['marca'] ?></td>
-                    <td><?= $row['modelo'] ?></td>
-                    <td><?= $row['tipo'] ?></td>
-                    <td><?= $row['color'] ?></td>
-                    <td><?= $row['serie'] ?></td>
-                    <td><?= $row['dimensiones'] ?></td>
-                    <td><?= $row['valor'] ?></td>
-                    <td><?= $row['situacion'] ?></td>
-                    <td><?= $row['estado_de_observacion'] ?></td>
-                    <td><?= $row['observaciones'] ?></td>
-                    <td><?= $row['estudiante'] ?></td>
-                    <td><?= $row['categoria'] ?></td>
+                    <td><?= htmlspecialchars($row['id']) ?></td>
+                    <td><?= htmlspecialchars($row['codigo_patrimonial']) ?></td>
+                    <td><?= htmlspecialchars($row['denominacion']) ?></td>
+                    <td><?= htmlspecialchars($row['marca']) ?></td>
+                    <td><?= htmlspecialchars($row['modelo']) ?></td>
+                    <td><?= htmlspecialchars($row['tipo']) ?></td>
+                    <td><?= htmlspecialchars($row['color']) ?></td>
+                    <td><?= htmlspecialchars($row['serie']) ?></td>
+                    <td><?= htmlspecialchars($row['dimensiones']) ?></td>
+                    <td><?= htmlspecialchars($row['valor']) ?></td>
+                    <td><?= htmlspecialchars($row['situacion']) ?></td>
+                    <td><?= htmlspecialchars($row['estado_de_observacion']) ?></td>
+                    <td><?= htmlspecialchars($row['observaciones']) ?></td>
+                    <td><?= htmlspecialchars($row['estudiante']) ?></td>
+                    <td><?= htmlspecialchars($row['categoria']) ?></td>
                     <td>
-                        <img src="<?= $row['imagen'] ?>" alt="Imagen del producto" style="width: 100px;">
+                        <img src="<?= htmlspecialchars($row['imagen']) ?>" alt="Imagen del producto" style="width: 100px;">
                     </td>
                 </tr>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
         </tbody>
+
     </table>
 </div>
-

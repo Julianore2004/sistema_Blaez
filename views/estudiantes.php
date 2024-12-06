@@ -1,15 +1,13 @@
-<?php
+<?php // LISTAR ESTUDIANTES
 
 require_once "./controllers/EstudianteController.php";
 // Obtener los estudiantes desde el controlador
 $estudiantes = EstudianteController::listarEstudiantes();
 ?>
 
-
 <div class="container mt-5">
     <div class="text-end mb-3">
         <a class="btn btn-primary" href="<?php echo BD_URL ?>registrar-estudiante">Agregar Estudiante</a>
-
     </div>
 
     <h2 class="mb-4">Listado de Estudiantes</h2>
@@ -24,7 +22,7 @@ $estudiantes = EstudianteController::listarEstudiantes();
             </tr>
         </thead>
         <tbody class="bg-white">
-            <?php while ($row = $estudiantes->fetch_assoc()): ?>
+            <?php while ($row = $estudiantes->fetch()): ?>
                 <tr>
                     <td><?= $row['id'] ?></td>
                     <td><?= htmlspecialchars($row['nombrecompleto']) ?></td>

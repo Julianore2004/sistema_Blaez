@@ -4,50 +4,63 @@ require_once "./config/config.php";
 class Conexion {
     private static $conexion;
 
+    // Método para establecer conexión segura con la base de datos
     public static function connect() {
         if (!self::$conexion) {
-            self::$conexion = new mysqli(BD_HOST, BD_USER, BD_PASSWORD, BD_NAME);
-            self::$conexion->set_charset(BD_CHARSET);
-            if (self::$conexion->connect_error) {
-                die("Error de conexión: " . self::$conexion->connect_error);
+            try {
+                $dsn = "mysql:host=" . BD_HOST . ";dbname=" . BD_NAME . ";charset=" . BD_CHARSET;
+                self::$conexion = new PDO($dsn, BD_USER, BD_PASSWORD, [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                ]);
+            } catch (PDOException $e) {
+                die("Error en la conexión: " . $e->getMessage());
             }
         }
         return self::$conexion;
     }
-
-    public static function consultar($query) {
-        $conexion = self::connect();
-        $resultado = $conexion->query($query);
-
-        if (!$resultado) {
-            die("Error en la consulta SQL: " . $conexion->error);
-        }
-        return $resultado;
-    }
 }
 
-class consultasSQL {
-    // Método para insertar datos en cualquier tabla
+// CONEXION.PHP
+
+class ConsultasSQL {
+    // Método para insertar datos en cualquier tabla usando consultas preparadas
     public static function InsertSQL($tabla, $campos, $valores) {
-        $conn = Conexion::connect();  // Conexión a la base de datos
-        $sql = "INSERT INTO $tabla ($campos) VALUES ($valores)";  // Consulta SQL para insertar
+        $conn = Conexion::connect();
 
-        // Ejecutar la consulta
-        if ($conn->query($sql) === TRUE) {
-            return true;  // Si la consulta se ejecutó correctamente
-        } else {
-            return false;  // Si ocurrió un error
+        if (is_string($valores)) {
+            $valores = explode(', ', $valores); // Convertir la cadena en un array si se pasa como cadena
         }
 
-        // Cerrar la conexión
-        $conn->close();
+        // Crear la lista de placeholders para los valores
+        $placeholders = implode(", ", array_fill(0, count($valores), "?"));
+        $sql = "INSERT INTO $tabla ($campos) VALUES ($placeholders)";
+        $stmt = $conn->prepare($sql);
+
+        try {
+            $stmt->execute($valores); // Ejecutar consulta
+            return true; // Retornar true si la consulta fue exitosa
+        } catch (PDOException $e) {
+            error_log("Error al insertar: " . $e->getMessage()); // Registrar el error
+            return false; // Retornar false si ocurrió un error
+        }
     }
 
-    // Función para limpiar las cadenas de texto y evitar inyecciones SQL
-    public static function clean_string($string) {
-        $conn = Conexion::connect();
-        return mysqli_real_escape_string($conn, trim($string));  // Eliminar espacios y evitar inyecciones
+    // Función para limpiar cadenas
+    public static function cleanString($string) {
+        return htmlspecialchars(trim($string), ENT_QUOTES, 'UTF-8');
     }
-    
+
+    // Método para realizar consultas SELECT
+    public static function consultar($query) {
+        $conn = Conexion::connect();
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(); // Retorna todos los resultados de la consulta
+    }
 }
+
+
 ?>
+
+

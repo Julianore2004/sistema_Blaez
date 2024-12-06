@@ -1,19 +1,19 @@
 <?php
-       require_once "./controllers/ModuloController.php";
+require_once "./controllers/ModuloController.php";
+
 // Obtener los módulos desde el controlador
 $modulos = ModuloController::listarModulos();
 ?>
 
 <div class="container mt-5">
-<div class="text-end mb-3">
-<a class="btn btn-primary" href="<?php echo BD_URL ?>registrar-modulo">Agregar Modulo</a>
-      
-</div>
+    <div class="text-end mb-3">
+        <a class="btn btn-primary" href="<?php echo BD_URL ?>registrar-modulo">Agregar Módulo</a>
+    </div>
 
     <h2 class="mb-4">Listado de Módulos</h2>
     
-     <table class="table table-striped">
-    <thead class="table-dark">
+    <table class="table table-striped">
+        <thead class="table-dark">
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -23,7 +23,7 @@ $modulos = ModuloController::listarModulos();
             </tr>
         </thead>
         <tbody class="bg-white">
-            <?php while ($row = $modulos->fetch_assoc()): ?>
+            <?php foreach ($modulos as $row): ?>
                 <tr>
                     <td><?= $row['id'] ?></td>
                     <td><?= $row['nombre'] ?></td>
@@ -33,8 +33,7 @@ $modulos = ModuloController::listarModulos();
                         <img src="<?= $row['imagen'] ?>" alt="Imagen del módulo" style="width: 100px; height: auto;">
                     </td>
                 </tr>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
-

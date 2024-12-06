@@ -3,9 +3,9 @@ require_once "./models/InventarioModel.php";
 
 class InventarioController {
     public static function registrarInventario($datos) {
-        // Validar y limpiar los datos
+        // Validar y sanitizar los datos
         foreach ($datos as $key => $value) {
-            $datos[$key] = consultasSQL::clean_string($value);
+            $datos[$key] = htmlspecialchars(trim($value));
         }
 
         if (InventarioModel::insertarInventario($datos)) {
@@ -22,8 +22,10 @@ class InventarioController {
     public static function listarCategorias() {
         return InventarioModel::obtenerCategorias();
     }
+
     public static function listarInventarios() {
         return InventarioModel::obtenerInventarios();
     }
 }
+
 ?>

@@ -1,5 +1,6 @@
-<?php
+<?php 
 // Si se recibe una solicitud POST, procesamos los datos
+// REGISTRAR ESTUDIANTES
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once "controllers/EstudianteController.php";
 
@@ -12,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mensaje = EstudianteController::registrarEstudiante($nombre, $programa, $semestre);
     echo "<script>alert('$mensaje');</script>";  // Mostramos un mensaje de éxito o error
 }
+
 ?>
 
 <!-- Formulario para registrar un nuevo estudiante -->
@@ -36,6 +38,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button class="btn btn-dark" type="submit">Registrar Estudiante</button>
         </div>
-    </div>
     </div>
 </form>

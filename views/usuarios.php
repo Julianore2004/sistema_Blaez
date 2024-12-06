@@ -1,20 +1,20 @@
 <?php
+// Listar usuarios (listado-usuarios.php)
 require_once "./controllers/UserController.php";
 
 // Obtener los usuarios desde el controlador
 $usuarios = UserController::listarUsuarios();
 ?>
 
-
-
 <div class="container mt-5">
     <div class="text-end mb-3">
-        <a class="btn btn-primary" href="<?php echo BD_URL ?>registrar-usuarios">Agregar Usuario</a>
+    <a class="btn btn-primary" href="<?php echo BD_URL ?>registrar-usuarios">Agregar Módulo</a>
     </div>
+
     <h2 class="mb-4">Listado de Usuarios</h2>
 
     <table class="table table-striped">
-    <thead class="table-dark">
+        <thead class="table-dark">
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -26,17 +26,17 @@ $usuarios = UserController::listarUsuarios();
             </tr>
         </thead>
         <tbody class="bg-white">
-            <?php while ($row = $usuarios->fetch_assoc()): ?>
+            <?php foreach ($usuarios as $usuario): ?>
                 <tr>
-                    <td><?= $row['user_id'] ?></td>
-                    <td><?= htmlspecialchars($row['firstname']) ?></td>
-                    <td><?= htmlspecialchars($row['lastname']) ?></td>
-                    <td><?= htmlspecialchars($row['user_name']) ?></td>
-                    <td><?= htmlspecialchars($row['user_email']) ?></td>
-                    <td><?= htmlspecialchars($row['rol']) ?></td>
-                    <td><?= htmlspecialchars($row['date_added']) ?></td>
+                    <td><?= htmlspecialchars($usuario['user_id']) ?></td>
+                    <td><?= htmlspecialchars($usuario['firstname']) ?></td>
+                    <td><?= htmlspecialchars($usuario['lastname']) ?></td>
+                    <td><?= htmlspecialchars($usuario['user_name']) ?></td>
+                    <td><?= htmlspecialchars($usuario['user_email']) ?></td>
+                    <td><?= htmlspecialchars($usuario['rol']) ?></td>
+                    <td><?= date("d/m/Y H:i:s", strtotime($usuario['date_added'])) ?></td>
                 </tr>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
