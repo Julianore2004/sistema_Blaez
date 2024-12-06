@@ -1,7 +1,7 @@
 <?php
 // Si se recibe una solicitud POST, procesamos los datos
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once "controllers/CategoriaController.php";
+    require_once "./controllers/CategoriaController.php";
 
     // Recibimos los datos del formulario
     $nombre = $_POST["nombre"];

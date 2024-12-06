@@ -1,5 +1,5 @@
 <?php
-require_once "controllers/InventarioController.php";
+require_once "./controllers/InventarioController.php";
 
 // Procesar el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

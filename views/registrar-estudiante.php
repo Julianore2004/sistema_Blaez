@@ -2,7 +2,7 @@
 // Si se recibe una solicitud POST, procesamos los datos
 // REGISTRAR ESTUDIANTES
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once "controllers/EstudianteController.php";
+    require_once "./controllers/EstudianteController.php";
 
     // Recibimos los datos del formulario
     $nombre = $_POST["nombre"];

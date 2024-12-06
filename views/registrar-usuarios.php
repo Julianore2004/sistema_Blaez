@@ -1,6 +1,6 @@
 
 <?php
-require_once "controllers/UserController.php";
+require_once "./controllers/UserController.php";
 
 // Procesar el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
