@@ -3,13 +3,13 @@ require_once "./controllers/InventarioController.php";
 // Controlador para obtener los inventarios
 $inventarios = InventarioController::listarInventarios();
 ?>
-
-<div class="container mt-5">
-    <div class="text-end mb-3">
+  <div class="text-end mb-3">
         <a class="btn btn-primary" href="<?php echo BD_URL ?>registrar-inventario">Agregar Nuevo Inventario</a>
 
     </div>
 
+<div class="container mt-5">
+  
     <h2 class="mb-4">Listado de Inventarios</h2>
 
     <table class="table table-striped">
