@@ -21,11 +21,7 @@ class UsuarioModel {
         $query = "INSERT INTO users (firstname, lastname, user_name, user_password_hash, user_email, date_added, rol) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexion->prepare($query);
         $stmt->bind_param("sssssss", $data['firstname'], $data['lastname'], $data['user_name'], $password_hash, $data['user_email'], $date_added, $data['rol']);
-        if ($stmt->execute()) {
-            echo "Usuario registrado exitosamente.";
-        } else {
-            echo "Error al registrar usuario: " . $stmt->error;
-        }
+        $stmt->execute();
     }
 
     public function editar($data) {
@@ -34,11 +30,7 @@ class UsuarioModel {
         $query = "UPDATE users SET firstname=?, lastname=?, user_name=?, user_password_hash=?, user_email=?, date_added=?, rol=? WHERE user_id=?";
         $stmt = $this->conexion->prepare($query);
         $stmt->bind_param("sssssssi", $data['firstname'], $data['lastname'], $data['user_name'], $password_hash, $data['user_email'], $date_added, $data['rol'], $data['user_id']);
-        if ($stmt->execute()) {
-            echo "Usuario actualizado exitosamente.";
-        } else {
-            echo "Error al actualizar usuario: " . $stmt->error;
-        }
+        $stmt->execute();
     }
 
     public function eliminar($id) {
@@ -55,5 +47,15 @@ class UsuarioModel {
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }
+
+    public function buscarPorNombre($nombre) {
+        $query = "SELECT * FROM users WHERE firstname LIKE ? OR lastname LIKE ? OR user_name LIKE ?";
+        $stmt = $this->conexion->prepare($query);
+        $nombre = '%' . $nombre . '%';
+        $stmt->bind_param("sss", $nombre, $nombre, $nombre);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+    
 }
 ?>

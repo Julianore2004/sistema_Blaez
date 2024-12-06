@@ -10,24 +10,24 @@ class ModuloModel {
     }
 
     public function listar() {
-        $query = "SELECT m.*, i.denominacion AS inventario_denominacion
+        $query = "SELECT m.*, e.nombrecompleto AS estudiante_nombrecompleto
                   FROM modulo m
-                  LEFT JOIN inventario i ON m.id_inventario = i.id";
+                  LEFT JOIN estudiantes e ON m.id_estudiante = e.id";
         $result = $this->conexion->query($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function registrar($data) {
-        $query = "INSERT INTO modulo (nombre, descripcion, id_inventario, imagen) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO modulo (nombre, descripcion, id_estudiante, imagen) VALUES (?, ?, ?, ?)";
         $stmt = $this->conexion->prepare($query);
-        $stmt->bind_param("ssis", $data['nombre'], $data['descripcion'], $data['id_inventario'], $data['imagen']);
+        $stmt->bind_param("ssis", $data['nombre'], $data['descripcion'], $data['id_estudiante'], $data['imagen']);
         $stmt->execute();
     }
 
     public function editar($data) {
-        $query = "UPDATE modulo SET nombre=?, descripcion=?, id_inventario=?, imagen=? WHERE id=?";
+        $query = "UPDATE modulo SET nombre=?, descripcion=?, id_estudiante=?, imagen=? WHERE id=?";
         $stmt = $this->conexion->prepare($query);
-        $stmt->bind_param("ssisi", $data['nombre'], $data['descripcion'], $data['id_inventario'], $data['imagen'], $data['id']);
+        $stmt->bind_param("ssisi", $data['nombre'], $data['descripcion'], $data['id_estudiante'], $data['imagen'], $data['id']);
         $stmt->execute();
     }
 
@@ -46,8 +46,8 @@ class ModuloModel {
         return $stmt->get_result()->fetch_assoc();
     }
 
-    public function obtenerInventarios() {
-        $query = "SELECT id, denominacion FROM inventario";
+    public function obtenerEstudiantes() {
+        $query = "SELECT id, nombrecompleto FROM estudiantes";
         $result = $this->conexion->query($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }

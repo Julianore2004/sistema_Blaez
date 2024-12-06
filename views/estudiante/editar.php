@@ -13,9 +13,17 @@
         </div>
         <div class="mb-3">
             <label for="semestre" class="form-label">Semestre:</label>
-            <input type="text" class="form-control" name="semestre" value="<?php echo $estudiante['semestre']; ?>" required>
+            <select class="form-select" name="semestre" required>
+                <option value="Semestre I" <?php if ($estudiante['semestre'] == 'I') echo 'selected'; ?>>Semestre I</option>
+                <option value="Semestre II" <?php if ($estudiante['semestre'] == 'II') echo 'selected'; ?>>Semestre II</option>
+                <option value="Semestre III" <?php if ($estudiante['semestre'] == 'III') echo 'selected'; ?>>Semestre III</option>
+                <option value="Semestre IV" <?php if ($estudiante['semestre'] == 'IV') echo 'selected'; ?>>Semestre IV</option>
+                <option value="Semestre V" <?php if ($estudiante['semestre'] == 'V') echo 'selected'; ?>>Semestre V</option>
+                <option value="Semestre VI" <?php if ($estudiante['semestre'] == 'VI') echo 'selected'; ?>>Semestre VI</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>
 <?php require_once __DIR__ . '/../footer.php'; ?>
+

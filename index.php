@@ -14,18 +14,21 @@ switch ($action) {
     case 'registrar':
     case 'editar':
     case 'eliminar':
+
         $controller = new InventarioController();
         break;
     case 'listar_categorias':
     case 'registrar_categoria':
     case 'editar_categoria':
     case 'eliminar_categoria':
+    case 'buscar_categoria':
         $controller = new CategoriaController();
         break;
     case 'listar_estudiantes':
     case 'registrar_estudiante':
     case 'editar_estudiante':
     case 'eliminar_estudiante':
+    case 'buscar_estudiante':
         $controller = new EstudianteController();
         break;
     case 'listar_modulos':
@@ -38,9 +41,16 @@ switch ($action) {
     case 'registrar_usuario':
     case 'editar_usuario':
     case 'eliminar_usuario':
+    case 'buscar_usuario':
         $controller = new UsuarioController();
         break;
-    // Agregar casos para otros controladores según sea necesario
+    case 'buscar_inventario':
+        $controller = new InventarioController();
+        break;
+    case 'filtrar_inventario':
+        $controller = new InventarioController();
+        break;
+    // Agregar casos para otras acciones según sea necesario
     default:
         echo "Acción no válida";
         exit;
@@ -71,6 +81,9 @@ switch ($action) {
     case 'eliminar_categoria':
         $controller->eliminar();
         break;
+    case 'buscar_categoria':
+        $controller->buscar();
+        break;
     case 'listar_estudiantes':
         $controller->listar();
         break;
@@ -82,6 +95,9 @@ switch ($action) {
         break;
     case 'eliminar_estudiante':
         $controller->eliminar();
+        break;
+    case 'buscar_estudiante':
+        $controller->buscar();
         break;
     case 'listar_modulos':
         $controller->listar();
@@ -106,6 +122,15 @@ switch ($action) {
         break;
     case 'eliminar_usuario':
         $controller->eliminar();
+        break;
+    case 'buscar_usuario':
+        $controller->buscar();
+        break;
+    case 'buscar_inventario':
+        $controller->buscar();
+        break;
+    case 'filtrar_inventario':
+        $controller->filtrar();
         break;
     // Agregar casos para otras acciones según sea necesario
     default:

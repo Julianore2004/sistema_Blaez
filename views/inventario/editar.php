@@ -4,6 +4,10 @@
     <form action="index.php?action=editar" method="post">
         <input type="hidden" name="id" value="<?php echo $inventario['id']; ?>">
         <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" name="nombre" value="<?php echo $inventario['nombre']; ?>" required>
+        </div>
+        <div class="mb-3">
             <label for="codigo_patrimonial" class="form-label">Código Patrimonial:</label>
             <input type="text" class="form-control" name="codigo_patrimonial" value="<?php echo $inventario['codigo_patrimonial']; ?>" required>
         </div>

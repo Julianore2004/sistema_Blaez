@@ -36,5 +36,11 @@ class EstudianteController {
         $this->model->eliminar($_GET['id']);
         header('Location: index.php?action=listar_estudiantes');
     }
+
+    public function buscar() {
+        $nombre = $_GET['nombre'];
+        $estudiantes = $this->model->buscarPorNombre($nombre);
+        require_once __DIR__ . '/../views/estudiante/buscar.php';
+    }
 }
 ?>

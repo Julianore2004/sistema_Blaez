@@ -43,5 +43,14 @@ class EstudianteModel {
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }
+
+    public function buscarPorNombre($nombre) {
+        $query = "SELECT * FROM estudiantes WHERE nombrecompleto LIKE ?";
+        $stmt = $this->conexion->prepare($query);
+        $nombre = '%' . $nombre . '%';
+        $stmt->bind_param("s", $nombre);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>

@@ -3,6 +3,10 @@
     <h1>Registrar Inventario</h1>
     <form action="index.php?action=registrar" method="post">
         <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" name="nombre" required>
+        </div>
+        <div class="mb-3">
             <label for="codigo_patrimonial" class="form-label">Código Patrimonial:</label>
             <input type="text" class="form-control" name="codigo_patrimonial" required>
         </div>

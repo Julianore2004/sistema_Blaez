@@ -36,5 +36,12 @@ class UsuarioController {
         $this->model->eliminar($_GET['id']);
         header('Location: index.php?action=listar_usuarios');
     }
+
+    public function buscar() {
+        $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : ''; // Verifica que exista el parámetro 'nombre'
+        $usuarios = $this->model->buscarPorNombre($nombre);
+        require_once __DIR__ . '/../views/usuario/buscar.php';
+    }
+    
 }
 ?>

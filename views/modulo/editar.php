@@ -12,10 +12,10 @@
             <textarea class="form-control" name="descripcion" required><?php echo $modulo['descripcion']; ?></textarea>
         </div>
         <div class="mb-3">
-            <label for="id_inventario" class="form-label">Inventario:</label>
-            <select class="form-select" name="id_inventario" required>
-                <?php foreach ($inventarios as $inventario): ?>
-                    <option value="<?php echo $inventario['id']; ?>" <?php if ($inventario['id'] == $modulo['id_inventario']) echo 'selected'; ?>><?php echo $inventario['denominacion']; ?></option>
+            <label for="id_estudiante" class="form-label">Estudiante:</label>
+            <select class="form-select" name="id_estudiante" required>
+                <?php foreach ($estudiantes as $estudiante): ?>
+                    <option value="<?php echo $estudiante['id']; ?>" <?php if ($estudiante['id'] == $modulo['id_estudiante']) echo 'selected'; ?>><?php echo $estudiante['nombrecompleto']; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>

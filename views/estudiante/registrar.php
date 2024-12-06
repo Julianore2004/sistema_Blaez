@@ -12,9 +12,18 @@
         </div>
         <div class="mb-3">
             <label for="semestre" class="form-label">Semestre:</label>
-            <input type="text" class="form-control" name="semestre" required>
+            <select class="form-select" name="semestre" required>
+                <option value="Semestre I">Semestre I</option>
+                <option value="Semestre II">Semestre II</option>
+                <option value="Semestre III">Semestre III</option>
+                <option value="Semestre IV"> SemestreIV</option>
+                <option value="Semestre V">Semestre V</option>
+                <option value="Semestre VI">Semestre VI</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
 </div>
 <?php require_once __DIR__ . '/../footer.php'; ?>
+
+AHORA QUIRO QUE IMLEMENTES ESTA PAGINA PRINCIPAL CON LA LOGICA QUE MANEJAS, QUE LOS MODULOS SE MUESTREN PERO SIN LOS BOTONES DE EDITAR ELIMIANR Y AGREGAR 

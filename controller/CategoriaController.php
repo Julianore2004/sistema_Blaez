@@ -36,5 +36,11 @@ class CategoriaController {
         $this->model->eliminar($_GET['id']);
         header('Location: index.php?action=listar_categorias');
     }
+
+    public function buscar() {
+        $nombre = $_GET['nombre'];
+        $categorias = $this->model->buscarPorNombre($nombre);
+        require_once __DIR__ . '/../views/categoria/buscar.php';
+    }
 }
 ?>

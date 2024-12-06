@@ -40,5 +40,17 @@ class InventarioController {
         $this->model->eliminar($_GET['id']);
         header('Location: index.php?action=listar');
     }
+
+    public function buscar() {
+        $nombre = $_GET['nombre'];
+        $inventarios = $this->model->buscarPorNombre($nombre);
+        require_once __DIR__ . '/../views/inventario/buscar.php';
+    }
+    public function filtrar() {
+        $categoriaId = $_GET['categoriaId'];
+        $inventarios = $this->model->filtrarPorCategoria($categoriaId);
+        require_once __DIR__ . '/../views/inventario/filtrar.php';
+    }
+    
 }
 ?>

@@ -11,10 +11,10 @@
             <textarea class="form-control" name="descripcion" required></textarea>
         </div>
         <div class="mb-3">
-            <label for="id_inventario" class="form-label">Inventario:</label>
-            <select class="form-select" name="id_inventario" required>
-                <?php foreach ($inventarios as $inventario): ?>
-                    <option value="<?php echo $inventario['id']; ?>"><?php echo $inventario['denominacion']; ?></option>
+            <label for="id_estudiante" class="form-label">Estudiante:</label>
+            <select class="form-select" name="id_estudiante" required>
+                <?php foreach ($estudiantes as $estudiante): ?>
+                    <option value="<?php echo $estudiante['id']; ?>"><?php echo $estudiante['nombrecompleto']; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
