@@ -1,6 +1,6 @@
 <?php
 // Controlador (UserController.php)
-require_once "models/UserModel.php";
+require_once "./models/UserModel.php";
 
 class UserController {
     // Registrar Usuario

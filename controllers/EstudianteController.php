@@ -1,7 +1,7 @@
 <?php
 // CONTROLADOR
 
-require_once "models/EstudianteModel.php";  // Incluye el modelo que maneja la inserción
+require_once "./models/EstudianteModel.php";  // Incluye el modelo que maneja la inserción
 
 class EstudianteController {
     public static function registrarEstudiante($nombre, $programa, $semestre) {
