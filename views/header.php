@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,24 +9,22 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-   <script src="views/js/inventario.js"></script>
 </head>
-
 <body class="d-flex flex-column min-vh-100">
   <nav class="navbar navbar-expand-lg" style="background-color: #0f67f6; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
     <div class="container-fluid">
-      <a class="navbar-brand" href="<?php echo BD_URL ?>inicio">
+      <a class="navbar-brand" href="index.php?action=listar">
         <img src="./img/logo_tecno.png" alt="Logo" width="65" height="28" />
       </a>
-      <a class="navbar-brand text-white" href="<?php echo BD_URL ?>inicio" style="font-weight: bold">Sistema de Inventario</a>
+      <a class="navbar-brand text-white" href="index.php?action=listar" style="font-weight: bold">Sistema de Inventario</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation" style="color: #fff">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar" style="opacity: 0.9">Inicio</a>
+          <a class="nav-link text-white" href="index.php?action=inicio" style="opacity: 0.9">Inicio</a>
+
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="index.php?action=listar" style="opacity: 0.9">Inventarios</a>
@@ -39,7 +36,7 @@
             <a class="nav-link text-white" href="index.php?action=listar_estudiantes" style="opacity: 0.9">Estudiantes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar_modulos" style="opacity: 0.9">Modulos</a>
+            <a class="nav-link text-white" href="index.php?action=listar_modulos" style="opacity: 0.9">Módulos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="index.php?action=listar_usuarios" style="opacity: 0.9">Usuarios</a>

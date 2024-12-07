@@ -58,6 +58,7 @@ class InventarioController {
         }
     }
     
+    
 
     public function eliminar() {
         $this->model->eliminar($_GET['id']);

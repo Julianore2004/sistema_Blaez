@@ -36,5 +36,6 @@ class ModuloController {
         $this->model->eliminar($_GET['id']);
         header('Location: index.php?action=listar_modulos');
     }
+   
 }
 ?>

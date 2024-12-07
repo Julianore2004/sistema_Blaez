@@ -7,9 +7,14 @@ require_once __DIR__ . '/controller/UsuarioController.php';
 // Requerir otros controladores según sea necesario
 
 $controller = null;
-$action = isset($_GET['action']) ? $_GET['action'] : 'listar';
+$action = isset($_GET['action']) ? $_GET['action'] : 'listar_modulos';
 
 switch ($action) {
+    // Agrega este caso al switch principal del index.php
+    case 'inicio':
+        require_once __DIR__ . '/views/inicio.php';
+        break;
+    // Agrega los demás casos al switch principal del index.php
     case 'listar':
     case 'registrar':
     case 'editar':
@@ -62,6 +67,7 @@ switch ($action) {
 }
 
 switch ($action) {
+    
     case 'listar':
         $controller->listar();
         break;

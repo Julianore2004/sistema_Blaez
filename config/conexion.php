@@ -43,10 +43,12 @@ class Conexion {
 ├── model/
 │   ├── InventarioModel.php
 ├── views/
-│   ├── inventario/
+│   ├── modulo/
 │   │   ├── listar.php
 │   │   ├── registrar.php
 │   │   ├── editar.php
+├── header.php
+├── footer.php
 ├── index.php
 ├── .htaccess */
 ?>
