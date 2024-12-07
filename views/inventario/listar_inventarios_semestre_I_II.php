@@ -1,4 +1,13 @@
-<?php require_once __DIR__ . '/../header.php'; ?>
+
+<?php
+require_once __DIR__ . '/../../config/session_manager.php';
+
+if ($_SESSION['rol'] === 'Administrador') {
+    require_once __DIR__ . '/../header.php';
+} elseif ($_SESSION['rol'] === 'Usuario') {
+    require_once __DIR__ . '/../header_usuario.php';
+}
+?>
 <div class="container mt-4">
     <h1>Inventarios de Semestre I y II</h1>
     <div class="row">
