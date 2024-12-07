@@ -10,9 +10,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const base_url = '<?php echo BD_URL; ?>';
-  </script>
+
+   <script src="views/js/inventario.js"></script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">

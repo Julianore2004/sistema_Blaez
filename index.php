@@ -14,7 +14,7 @@ switch ($action) {
     case 'registrar':
     case 'editar':
     case 'eliminar':
-
+    case 'filtrar':
         $controller = new InventarioController();
         break;
     case 'listar_categorias':
@@ -47,9 +47,10 @@ switch ($action) {
     case 'buscar_inventario':
         $controller = new InventarioController();
         break;
-    case 'filtrar_inventario':
+    case 'filtrar_por_categoria':
         $controller = new InventarioController();
-        break;
+        $controller->filtrarPorCategoria();
+        exit;
     // Agregar casos para otras acciones según sea necesario
     default:
         echo "Acción no válida";
@@ -129,9 +130,7 @@ switch ($action) {
     case 'buscar_inventario':
         $controller->buscar();
         break;
-    case 'filtrar_inventario':
-        $controller->filtrar();
-        break;
+
     // Agregar casos para otras acciones según sea necesario
     default:
         echo "Acción no válida";

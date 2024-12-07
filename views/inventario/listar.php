@@ -4,15 +4,16 @@
     <a href="index.php?action=registrar" class="btn btn-primary mb-3">Registrar Nuevo</a>
     <input type="text" id="buscarInventario" class="form-control mb-3" placeholder="Buscar por nombre del objeto">
     <div class="mb-3">
-        <label for="filtroCategoria" class="form-label">Filtrar por Categoría:</label>
-        <select class="form-select" id="filtroCategoria" onchange="filtrarInventario()">
-            <option value="">Todas</option>
+        <label for="categoria" class="form-label">Filtrar por Categoría:</label>
+        <select class="form-select" id="categoria" onchange="filtrarInventario()">
+            <option value="">Seleccionar Categoría</option>
             <?php foreach ($categorias as $categoria): ?>
                 <option value="<?php echo $categoria['id']; ?>"><?php echo $categoria['nombreCategoria']; ?></option>
             <?php endforeach; ?>
         </select>
     </div>
     <div id="resultadosBusqueda">
+        <div id="resultadosFiltrados">
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>
@@ -29,6 +30,7 @@
                 <th>Situación</th>
                 <th>Estado de Observación</th>
                 <th>Observaciones</th>
+               
                 <th>Estudiante</th>
                 <th>Categoría</th>
                 <th>Acciones</th>
@@ -49,7 +51,6 @@
                     <td><?php echo $inventario['situacion']; ?></td>
                     <td><?php echo $inventario['estado_de_observacion']; ?></td>
                     <td><?php echo $inventario['observaciones']; ?></td>
-                    
                     <td><?php echo $inventario['nombrecompleto']; ?></td>
                     <td><?php echo $inventario['nombreCategoria']; ?></td>
                     <td>
@@ -59,22 +60,22 @@
                 </tr>
             <?php endforeach; ?>
         </table>
-    </div>
+        </div>
 </div>
 <?php require_once __DIR__ . '/../footer.php'; ?>
-
 <script>
-function filtrarInventario() {
-    var categoriaId = document.getElementById('filtroCategoria').value;
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'index.php?action=filtrar_inventario&categoriaId=' + encodeURIComponent(categoriaId), true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            document.getElementById('resultadosBusqueda').innerHTML = xhr.responseText;
-        }
-    };
-    xhr.send();
-}
+    function filtrarInventario() {
+        var categoriaId = document.getElementById('categoria').value;
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'index.php?action=filtrar_por_categoria', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById('resultadosFiltrados').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send('id_categoria=' + categoriaId);
+    }
 </script>
 <script>
 document.getElementById('buscarInventario').addEventListener('input', function() {

@@ -11,8 +11,7 @@ class InventarioModel
         $this->conexion = $db->getConexion();
     }
 
-    public function listar()
-    {
+    public function listar() {
         $query = "SELECT i.*, c.nombreCategoria, e.nombrecompleto
                   FROM inventario i
                   JOIN categorias c ON i.id_categoria = c.id
@@ -20,7 +19,7 @@ class InventarioModel
         $result = $this->conexion->query($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
+   
     public function registrar($data)
     {
         $query = "INSERT INTO inventario (nombre, codigo_patrimonial, denominacion, marca, modelo, tipo, color, serie, dimensiones, valor, situacion, estado_de_observacion, observaciones, imagen, id_estudiante, id_categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -54,12 +53,6 @@ class InventarioModel
         return $stmt->get_result()->fetch_assoc();
     }
 
-    public function obtenerCategorias()
-    {
-        $query = "SELECT id, nombreCategoria FROM categorias";
-        $result = $this->conexion->query($query);
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
 
     public function obtenerEstudiantes()
     {
@@ -81,28 +74,23 @@ class InventarioModel
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
-    public function filtrarPorCategoria($categoriaId) {
+  
+    public function obtenerCategorias() {
+        $query = "SELECT id, nombreCategoria FROM categorias";
+        $result = $this->conexion->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function filtrarPorCategoria($id_categoria) {
         $query = "SELECT i.*, c.nombreCategoria, e.nombrecompleto
                   FROM inventario i
                   JOIN categorias c ON i.id_categoria = c.id
                   JOIN estudiantes e ON i.id_estudiante = e.id
                   WHERE i.id_categoria = ?";
         $stmt = $this->conexion->prepare($query);
-    
-        if (!$stmt) {
-            die("Error en la preparación del query: " . $this->conexion->error);
-        }
-    
-        $stmt->bind_param("i", $categoriaId);
+        $stmt->bind_param("i", $id_categoria);
         $stmt->execute();
-        $result = $stmt->get_result();
-    
-        if ($result->num_rows === 0) {
-            echo "No hay resultados para la categoría: $categoriaId";
-            return [];
-        }
-    
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
     
 }

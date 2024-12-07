@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-12-2024 a las 20:49:14
+-- Tiempo de generación: 07-12-2024 a las 01:27:19
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -12,12 +12,6 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
 -- Base de datos: `sistema_inventario_blaez`
 --
 
@@ -87,6 +81,7 @@ INSERT INTO `estudiantes` (`id`, `nombrecompleto`, `programa_de_estudios`, `seme
 
 CREATE TABLE `inventario` (
   `id` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
   `codigo_patrimonial` varchar(50) NOT NULL,
   `denominacion` varchar(255) NOT NULL,
   `marca` varchar(100) NOT NULL,
@@ -108,11 +103,11 @@ CREATE TABLE `inventario` (
 -- Volcado de datos para la tabla `inventario`
 --
 
-INSERT INTO `inventario` (`id`, `codigo_patrimonial`, `denominacion`, `marca`, `modelo`, `tipo`, `color`, `serie`, `dimensiones`, `valor`, `situacion`, `estado_de_observacion`, `observaciones`, `imagen`, `id_estudiante`, `id_categoria`) VALUES
-(2, 'a', 'a', 'a', 's', 's', 's', 'SS', 's', 'sss', 'ss', 'ss', 'sss', 'ss', 1, 1),
-(3, 'XXX', 'XX', 'XXX', 'X', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 1, 4),
-(4, 'z', 'zz', 'zz', 'zz', 'zzz', 'zz', 'z', 'zz', 'zz', 'zz', 'zz', 'z', 'https://www.impacto.com.pe/storage/pc/md/173154252122960.webp', 2, 7),
-(8, 'XX', 'XX', 'XX', 'XZ', 'ZX', 'ZXZX', 'XZXZX', 'ZXXZ', 'XZX', 'SAS', 'XZX', 'XZX', 'ZX', 3, 9);
+INSERT INTO `inventario` (`id`, `nombre`, `codigo_patrimonial`, `denominacion`, `marca`, `modelo`, `tipo`, `color`, `serie`, `dimensiones`, `valor`, `situacion`, `estado_de_observacion`, `observaciones`, `imagen`, `id_estudiante`, `id_categoria`) VALUES
+(2, 'ASSAS', 'a', 'a', 'a', 's', 's', 's', 'SS', 's', 'sss', 'ss', 'ss', 'sss', 'ss', 1, 1),
+(3, 'QAZXCV', 'XXX', 'XX', 'XXX', 'X', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 1, 4),
+(4, 'PERRA', 'z', 'zz', 'zz', 'zz', 'zzz', 'zz', 'z', 'zz', 'zz', 'zz', 'zz', 'z', 'https://www.impacto.com.pe/storage/pc/md/173154252122960.webp', 2, 7),
+(8, 'LAJS', 'XX', 'XX', 'XX', 'XZ', 'ZX', 'ZXZX', 'XZXZX', 'ZXXZ', 'XZX', 'SAS', 'XZX', 'XZX', 'ZX', 3, 9);
 
 -- --------------------------------------------------------
 
@@ -159,11 +154,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `user_name`, `user_password_hash`, `user_email`, `date_added`, `rol`) VALUES
-(1, 'Obed', 'Alvarado', 'admin', '$2y$10$tIddxi4ruIQTFLFgXkI6U.sGDR8xO1W3/y2oGmspXKsg96WidKffW', 'admin@admin.com', '2024-12-06 06:37:22', 'administrador'),
-(2, 'aa', 'a', 'aa', '$2y$10$ABtTpnDr77mUu4K10smEz.CJ0kN8gu4ypfIhnPo9cRLJb4Ke0g1EW', 'aa@aa.com', '2024-12-06 06:33:39', 'administrador'),
-
---
--- Índices para tablas volcadas
+(1, 'admin', 'admin', 'admin', '$2y$10$qpkWKZ6CpsurgLnPxYl92uMJLCu.OpS9Y4x7MW4SVMtU5dpv8nvQ2', 'admin@admin.com', '2024-12-06 21:14:33', 'administrador');
 --
 
 --
@@ -253,6 +244,4 @@ ALTER TABLE `modulo`
   ADD CONSTRAINT `fk_modulo_estudiante` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREA UN FILTRO PARA FILTRAR EL INVENTARIO POR CATEGORIA QUE EL FILTRO ESTE EL LISTAR DE IVENTARIO Y QUE AL SELECIONAR LA CATEGORIA  ME CARGE UNA NUEVA TABAL SEGUN LA CATEGORIA SELECCIONADA
