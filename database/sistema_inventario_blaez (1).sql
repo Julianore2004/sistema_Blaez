@@ -103,19 +103,6 @@ INSERT INTO `inventario` (`id`, `nombre`, `codigo_patrimonial`, `denominacion`, 
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `modulo`
---
-
-/* CREATE TABLE `modulo` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `descripcion` text NOT NULL,
-  `id_estudiante` int(11) DEFAULT NULL,
-  `imagen` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
- */
-
 CREATE TABLE `modulo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
@@ -242,4 +229,15 @@ ALTER TABLE `modulo`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_modulo_estudiante` (`id_estudiante`);
  */
-QUIERO QUE CREES UN ARCHIVO INICIO.PHP PARA QUE SEA LA PAGINA DE INICIO DEL SISTEMA Y QUE EN ARCHIVO INICIO.PHP MUESTRE LAS TARGETAS DE LOS MODULOS PERO SIN LAS OPCIONES DE REGISTRAR, EDITAR Y ELIMINAR Y QUE AL DAR CLICK EN LA TARGETA ME ENVIE A OTRO ARCHIVO, SOLO DAME EL CODIGO DE PAGINA DE INICIO CON LAS TARGETAS DE LOS MODULOS
+ --
+-- Estructura de tabla para la tabla `modulo`
+--
+
+/* CREATE TABLE `modulo` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` text NOT NULL,
+  `id_estudiante` int(11) DEFAULT NULL,
+  `imagen` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+ */

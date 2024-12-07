@@ -40,15 +40,31 @@ class Conexion {
 │   ├── conexion.php
 ├── controller/
 │   ├── InventarioController.php
+│   ├── EstudianteController.php
+│   ├── ModuloController.php
 ├── model/
 │   ├── InventarioModel.php
+│   ├── EstudianteModel.php
+│   ├── ModuloModel.php
 ├── views/
 │   ├── modulo/
 │   │   ├── listar.php
 │   │   ├── registrar.php
 │   │   ├── editar.php
-├── header.php
-├── footer.php
+│   ├── estudiante/
+│   │   ├── listar.php
+│   │   ├── registrar.php
+│   │   ├── editar.php
+│   ├── inventario/
+│   │   ├── listar.php
+│   │   ├── registrar.php
+│   │   ├── editar.php
+│   ├── header.php
+│   ├── footer.php
+│   ├── inicio.php
+│   ├── listarinventarioporsemestreIyIIdeestudiante.php
+│   ├── listarinventarioporsemestreIIIyIVdeestudiante.php
+│   ├── listarinventarioporsemestreVyVIdeestudiante.php
 ├── index.php
 ├── .htaccess */
 ?>

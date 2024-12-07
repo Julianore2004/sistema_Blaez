@@ -14,6 +14,25 @@ switch ($action) {
     case 'inicio':
         require_once __DIR__ . '/views/inicio.php';
         break;
+    case 'listar_inventarios_semestre_I_II':
+        $controller = new InventarioController();
+        $controller->listarInventariosSemestreIyII();
+        break;
+
+    case 'listar_inventarios_semestre_III_IV':
+        $controller = new InventarioController();
+        $controller->listarInventariosSemestreIIIyIV();
+        break;
+    case 'listar_inventarios_semestre_V_VI':
+        $controller = new InventarioController();
+        $controller->listarInventariosSemestreVyVI();
+        break;
+    case 'ver_detalles_inventario':
+        $controller = new InventarioController();
+        $controller->verDetallesInventario();
+        break;
+
+
     // Agrega los demás casos al switch principal del index.php
     case 'listar':
     case 'registrar':
@@ -67,7 +86,7 @@ switch ($action) {
 }
 
 switch ($action) {
-    
+
     case 'listar':
         $controller->listar();
         break;

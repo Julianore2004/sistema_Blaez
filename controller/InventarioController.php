@@ -75,5 +75,26 @@ class InventarioController {
         $inventariosFiltrados = $this->model->filtrarPorCategoria($id_categoria);
         require_once __DIR__ . '/../views/inventario/filtrar.php';
     }
+    public function listarInventariosSemestreIyII() {
+        $inventarios = $this->model->listarInventariosSemestreIyII();
+        require_once __DIR__ . '/../views/inventario/listar_inventarios_semestre_I_II.php';
+    }
+    public function listarInventariosSemestreIIIyIV() {
+        $inventarios = $this->model->listarInventariosSemestreIIIyIV();
+        require_once __DIR__ . '/../views/inventario/listar_inventarios_semestre_III_IV.php';
+    }
+    
+    public function listarInventariosSemestreVyVI() {
+        $inventarios = $this->model->listarInventariosSemestreVyVI();
+        require_once __DIR__ . '/../views/inventario/listar_inventarios_semestre_V_VI.php';
+    }
+    public function verDetallesInventario() {
+        $id = $_GET['id'];
+        $inventario = $this->model->obtenerInventarioPorId($id);
+        require_once __DIR__ . '/../views/inventario/ver_detalles_inventario.php';
+    }
+    
+    
+    
 }
 ?>

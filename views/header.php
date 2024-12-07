@@ -50,10 +50,8 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <li><a class="dropdown-item" href="perfil.php">Perfil</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li><a class="dropdown-item" href="cerrar_sesion.php">Cerrar sesión</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="./cerrar_session.php">Cerrar sesión</a></li>
         </ul>
       </div>
     </div>
