@@ -42,5 +42,10 @@ class EstudianteController {
         $estudiantes = $this->model->buscarPorNombre($nombre);
         require_once __DIR__ . '/../views/estudiante/buscar.php';
     }
+    public function filtrarPorSemestre() {
+        $semestre = $_POST['semestre'];
+        $estudiantesFiltrados = $this->model->filtrarPorSemestre($semestre);
+        require_once __DIR__ . '/../views/estudiante/filtrar.php';
+    }
 }
 ?>

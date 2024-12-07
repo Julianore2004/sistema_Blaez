@@ -21,20 +21,84 @@ class InventarioModel
     }
    
     public function registrar($data)
-    {
-        $query = "INSERT INTO inventario (nombre, codigo_patrimonial, denominacion, marca, modelo, tipo, color, serie, dimensiones, valor, situacion, estado_de_observacion, observaciones, imagen, id_estudiante, id_categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->conexion->prepare($query);
-        $stmt->bind_param("sssssssssssssss", $data['nombre'], $data['codigo_patrimonial'], $data['denominacion'], $data['marca'], $data['modelo'], $data['tipo'], $data['color'], $data['serie'], $data['dimensiones'], $data['valor'], $data['situacion'], $data['estado_de_observacion'], $data['observaciones'], $data['imagen'], $data['id_estudiante'], $data['id_categoria']);
-        $stmt->execute();
+{
+    $query = "INSERT INTO inventario 
+        (nombre, codigo_patrimonial, denominacion, marca, modelo, tipo, color, serie, dimensiones, valor, situacion, estado_de_observacion, observaciones, imagen, id_estudiante, id_categoria) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    $stmt = $this->conexion->prepare($query);
+
+    if (!$stmt) {
+        die("Error al preparar la consulta: " . $this->conexion->error);
     }
 
-    public function editar($data)
-    {
-        $query = "UPDATE inventario SET nombre=?, codigo_patrimonial=?, denominacion=?, marca=?, modelo=?, tipo=?, color=?, serie=?, dimensiones=?, valor=?, situacion=?, estado_de_observacion=?, observaciones=?, imagen=?, id_estudiante=?, id_categoria=? WHERE id=?";
-        $stmt = $this->conexion->prepare($query);
-        $stmt->bind_param("sssssssssssssssi", $data['nombre'], $data['codigo_patrimonial'], $data['denominacion'], $data['marca'], $data['modelo'], $data['tipo'], $data['color'], $data['serie'], $data['dimensiones'], $data['valor'], $data['situacion'], $data['estado_de_observacion'], $data['observaciones'], $data['imagen'], $data['id_estudiante'], $data['id_categoria'], $data['id']);
-        $stmt->execute();
+    $stmt->bind_param(
+        "ssssssssssssssis", 
+        $data['nombre'], 
+        $data['codigo_patrimonial'], 
+        $data['denominacion'], 
+        $data['marca'], 
+        $data['modelo'], 
+        $data['tipo'], 
+        $data['color'], 
+        $data['serie'], 
+        $data['dimensiones'], 
+        $data['valor'], 
+        $data['situacion'], 
+        $data['estado_de_observacion'], 
+        $data['observaciones'], 
+        $data['imagen'], 
+        $data['id_estudiante'], 
+        $data['id_categoria']
+    );
+
+    if (!$stmt->execute()) {
+        die("Error al ejecutar la consulta: " . $stmt->error);
     }
+
+    $stmt->close();
+}
+
+public function editar($data)
+{
+    $query = "UPDATE inventario 
+        SET nombre=?, codigo_patrimonial=?, denominacion=?, marca=?, modelo=?, tipo=?, color=?, serie=?, dimensiones=?, valor=?, situacion=?, estado_de_observacion=?, observaciones=?, imagen=?, id_estudiante=?, id_categoria=? 
+        WHERE id=?";
+
+    $stmt = $this->conexion->prepare($query);
+
+    if (!$stmt) {
+        die("Error al preparar la consulta: " . $this->conexion->error);
+    }
+
+    $stmt->bind_param(
+        "ssssssssssssssssi",
+        $data['nombre'], 
+        $data['codigo_patrimonial'], 
+        $data['denominacion'], 
+        $data['marca'], 
+        $data['modelo'], 
+        $data['tipo'], 
+        $data['color'], 
+        $data['serie'], 
+        $data['dimensiones'], 
+        $data['valor'], 
+        $data['situacion'], 
+        $data['estado_de_observacion'], 
+        $data['observaciones'], 
+        $data['imagen'], 
+        $data['id_estudiante'], 
+        $data['id_categoria'], 
+        $data['id']
+    );
+
+    if (!$stmt->execute()) {
+        die("Error al ejecutar la consulta: " . $stmt->error);
+    }
+
+    $stmt->close();
+}
+
 
     public function eliminar($id)
     {

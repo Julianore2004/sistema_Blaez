@@ -51,6 +51,10 @@ switch ($action) {
         $controller = new InventarioController();
         $controller->filtrarPorCategoria();
         exit;
+    case 'filtrar_por_semestre':
+        $controller = new EstudianteController();
+        $controller->filtrarPorSemestre();
+        exit;
     // Agregar casos para otras acciones según sea necesario
     default:
         echo "Acción no válida";

@@ -52,5 +52,12 @@ class EstudianteModel {
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
+    public function filtrarPorSemestre($semestre) {
+        $query = "SELECT * FROM estudiantes WHERE semestre=?";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("s", $semestre);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>
