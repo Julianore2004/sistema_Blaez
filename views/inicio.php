@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/session_manager.php';
 
-
 if ($_SESSION['rol'] === 'Administrador') {
     require_once __DIR__ . '/header.php';
 } elseif ($_SESSION['rol'] === 'Usuario') {
