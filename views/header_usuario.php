@@ -12,10 +12,10 @@
 <body class="d-flex flex-column min-vh-100">
   <nav class="navbar navbar-expand-lg" style="background-color: #0f67f6; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.php?action=listar">
+      <a class="navbar-brand" href="index.php?action=inicio">
         <img src="./img/logo_tecno.png" alt="Logo" width="65" height="28" />
       </a>
-      <a class="navbar-brand text-white" href="index.php?action=listar" style="font-weight: bold">Sistema de Inventario</a>
+      <a class="navbar-brand text-white" href="index.php?action=inicio" style="font-weight: bold">Sistema de Inventario</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation" style="color: #fff">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,21 +23,6 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link text-white" href="index.php?action=inicio" style="opacity: 0.9">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar" style="opacity: 0.9">Inventarios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar_categorias" style="opacity: 0.9">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar_estudiantes" style="opacity: 0.9">Estudiantes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar_modulos" style="opacity: 0.9">Módulos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar_usuarios" style="opacity: 0.9">Usuarios</a>
           </li>
         </ul>
       </div>

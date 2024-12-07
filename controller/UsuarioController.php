@@ -7,7 +7,32 @@ class UsuarioController {
     public function __construct() {
         $this->model = new UsuarioModel();
     }
+    public function login() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $user_name = $_POST['user_name'];
+            $user_password = $_POST['user_password'];
+    
+            $usuario = $this->model->autenticarUsuario($user_name, $user_password);
+    
+            if ($usuario) {
+                session_start();
+                $_SESSION['user_id'] = $usuario['user_id'];
+                $_SESSION['user_name'] = $usuario['user_name'];
+                $_SESSION['rol'] = $usuario['rol'];
+    
+                if ($usuario['rol'] === 'Administrador') {
+                    header('Location: index.php?action=inicio');
+                } elseif ($usuario['rol'] === 'Usuario') {
+                    header('Location: index.php?action=inicio');
+                }
+                exit;
+            } else {
+                echo "Nombre de usuario o contraseña incorrectos.";
+            }
+        }
+    }
 
+    
     public function listar() {
         $usuarios = $this->model->listar();
         require_once __DIR__ . '/../views/usuario/listar.php';
@@ -43,5 +68,9 @@ class UsuarioController {
         require_once __DIR__ . '/../views/usuario/buscar.php';
     }
     
+   
+    
+
+
 }
 ?>

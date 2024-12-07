@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inicio - Sistema de Inventario</title>
+  <title>Usuario - Sistema de Inventario</title>
   <link rel="stylesheet" href="views/css/estilos.css" />
   <link rel="stylesheet" href="views/css/boostrap.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -24,21 +25,6 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="index.php?action=inicio" style="opacity: 0.9">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar" style="opacity: 0.9">Inventarios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar_categorias" style="opacity: 0.9">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar_estudiantes" style="opacity: 0.9">Estudiantes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar_modulos" style="opacity: 0.9">Módulos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.php?action=listar_usuarios" style="opacity: 0.9">Usuarios</a>
-          </li>
         </ul>
       </div>
 
@@ -47,7 +33,7 @@
           <?php echo htmlspecialchars($_SESSION['user_name']); ?>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="perfil.php">Perfil</a></li>
+          <li><a class="dropdown-item" href="index.php?action=perfil">Perfil</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="index.php?action=logout">Cerrar sesión</a></li>
         </ul>

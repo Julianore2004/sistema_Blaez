@@ -139,8 +139,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `user_name`, `user_password_hash`, `user_email`, `date_added`, `rol`) VALUES
-(1, 'admin', 'admin', 'admin', '$2y$10$qpkWKZ6CpsurgLnPxYl92uMJLCu.OpS9Y4x7MW4SVMtU5dpv8nvQ2', 'admin@admin.com', '2024-12-06 21:14:33', 'administrador');
---
+(1, 'admin', 'admin', 'admin', '$2y$10$qpkWKZ6CpsurgLnPxYl92uMJLCu.OpS9Y4x7MW4SVMtU5dpv8nvQ2', 'admin@admin.com', '2024-12-06 21:14:33', 'Administrador');
+
 
 --
 -- Indices de la tabla `categorias`

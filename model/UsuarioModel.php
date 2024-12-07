@@ -9,6 +9,32 @@ class UsuarioModel {
         $this->conexion = $db->getConexion();
     }
 
+    public function autenticarUsuario($user_name, $user_password) {
+        $query = "SELECT * FROM users WHERE user_name = ?";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("s", $user_name);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        if ($result->num_rows === 1) {
+            $usuario = $result->fetch_assoc();
+            if (password_verify($user_password, $usuario['user_password_hash'])) {
+                return $usuario;
+            }
+        }
+        return null;
+    }
+    
+   
+
+    public function obtenerPorId($user_id) {
+        $query = "SELECT * FROM users WHERE user_id = ?";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
     public function listar() {
         $query = "SELECT * FROM users";
         $result = $this->conexion->query($query);
@@ -40,13 +66,7 @@ class UsuarioModel {
         $stmt->execute();
     }
 
-    public function obtenerPorId($id) {
-        $query = "SELECT * FROM users WHERE user_id=?";
-        $stmt = $this->conexion->prepare($query);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        return $stmt->get_result()->fetch_assoc();
-    }
+  
 
     public function buscarPorNombre($nombre) {
         $query = "SELECT * FROM users WHERE firstname LIKE ? OR lastname LIKE ? OR user_name LIKE ?";
@@ -57,5 +77,6 @@ class UsuarioModel {
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
     
+  
 }
 ?>

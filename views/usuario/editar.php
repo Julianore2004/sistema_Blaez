@@ -26,7 +26,7 @@
         <div class="mb-3">
             <label for="rol" class="form-label">Rol:</label>
             <select class="form-select" name="rol" required>
-                <option value="Encargado" <?php if ($usuario['rol'] == 'encargado') echo 'selected'; ?>>Encargado</option>
+                <option value="Usuario" <?php if ($usuario['rol'] == 'Usuario') echo 'selected'; ?>>Usuario</option>
                 <option value="Administrador" <?php if ($usuario['rol'] == 'administrador') echo 'selected'; ?>>Administrador</option>
             </select>
         </div>

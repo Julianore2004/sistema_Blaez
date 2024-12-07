@@ -40,31 +40,38 @@ class Conexion {
 │   ├── conexion.php
 ├── controller/
 │   ├── InventarioController.php
+│   ├── CategoriaController.php
 │   ├── EstudianteController.php
 │   ├── ModuloController.php
+│   ├── UsuarioController.php
 ├── model/
 │   ├── InventarioModel.php
+│   ├── CategoriaModel.php
 │   ├── EstudianteModel.php
 │   ├── ModuloModel.php
+│   ├── UsuarioModel.php
 ├── views/
-│   ├── modulo/
-│   │   ├── listar.php
-│   │   ├── registrar.php
-│   │   ├── editar.php
-│   ├── estudiante/
-│   │   ├── listar.php
-│   │   ├── registrar.php
-│   │   ├── editar.php
+│   ├── css/
+│   │   ├── estilos.css
+│   │   ├── boostrap.css
 │   ├── inventario/
-│   │   ├── listar.php
-│   │   ├── registrar.php
-│   │   ├── editar.php
+│   │   ├── listar_inventarios_semestre_I_II.php
+│   │   ├── listar_inventarios_semestre_III_IV.php
+│   │   ├── listar_inventarios_semestre_V_VI.php
+│   │   ├── ver_detalles_inventario.css
+│   ├── usuario/
+│   │   ├── editar_perfil.php
+│   │   ├── perfil.php
+│   ├── cerrar_session.php
+│   ├── inicio.php
+│   ├── login.php
 │   ├── header.php
 │   ├── footer.php
-│   ├── inicio.php
-│   ├── listarinventarioporsemestreIyIIdeestudiante.php
-│   ├── listarinventarioporsemestreIIIyIVdeestudiante.php
-│   ├── listarinventarioporsemestreVyVIdeestudiante.php
+│   ├── ver_detalles_inventario.php
+│   ├── editar_perfil.php
+│   ├── perfil.php
+│   ├── cerrar_session.php
 ├── index.php
 ├── .htaccess */
+
 ?>

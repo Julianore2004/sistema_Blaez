@@ -1,4 +1,18 @@
-<?php require_once __DIR__ . '/header.php'; ?>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+    if (isset($_SESSION['user_id'])) {
+        header('Location: index.php?action=login.php');
+        exit;
+    }
+}
+
+if ($_SESSION['rol'] === 'Administrador') {
+    require_once __DIR__ . '/header.php';
+} elseif ($_SESSION['rol'] === 'Usuario') {
+    require_once __DIR__ . '/header_usuario.php';
+}
+?>
 <div class="container mt-4">
     <h1 class="text-center">Bienvenido al Sistema de Inventario</h1>
     <div class="row mt-5">

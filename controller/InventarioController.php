@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../model/InventarioModel.php';
 require_once __DIR__ . '/../model/CategoriaModel.php';
+require_once __DIR__ . '/../controller/UsuarioController.php';
+
 class InventarioController {
     private $model;
 
@@ -8,6 +10,8 @@ class InventarioController {
         $this->model = new InventarioModel();
     }
 
+
+    
     public function listar() {
         $inventarios = $this->model->listar();
         $categorias = $this->model->obtenerCategorias();
@@ -94,7 +98,6 @@ class InventarioController {
         require_once __DIR__ . '/../views/inventario/ver_detalles_inventario.php';
     }
     
-    
-    
+
 }
 ?>
