@@ -4,18 +4,25 @@
     <form action="index.php?action=registrar_modulo" method="post">
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" name="nombre" required>
+            <select class="form-select" name="nombre" id="nombre" required>
+                <option value="Módulo I">Módulo I</option>
+                <option value="Módulo II">Módulo II</option>
+                <option value="Módulo III">Módulo III</option>
+            </select>
         </div>
         <div class="mb-3">
             <label for="descripcion" class="form-label">Descripción:</label>
             <textarea class="form-control" name="descripcion" required></textarea>
         </div>
         <div class="mb-3">
-            <label for="id_estudiante" class="form-label">Estudiante:</label>
-            <select class="form-select" name="id_estudiante" required>
-                <?php foreach ($estudiantes as $estudiante): ?>
-                    <option value="<?php echo $estudiante['id']; ?>"><?php echo $estudiante['nombrecompleto']; ?></option>
-                <?php endforeach; ?>
+            <label for="semestre" class="form-label">Semestre:</label>
+            <select class="form-select" name="semestre" id="semestre" required>
+                <option value="Semestre I Semestre II">Semestre I Semestre II</option>
+               
+                <option value="Semestre III Semestre IV">Semestre III Semestre IV</option>
+               
+                <option value="Semestre V Semestre VI">Semestre V Semestre VI</option>
+             
             </select>
         </div>
         <div class="mb-3">
@@ -25,4 +32,22 @@
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
 </div>
+<script>
+    document.getElementById('nombre').addEventListener('change', function () {
+        var semestreSelect = document.getElementById('semestre');
+        var selectedModule = this.value;
+
+        // Limpiar las opciones actuales
+        semestreSelect.innerHTML = '';
+
+        // Agregar las opciones correspondientes al módulo seleccionado
+        if (selectedModule === 'Módulo I') {
+            semestreSelect.innerHTML = '  <option value="Semestre I Semestre II">Semestre I Semestre II</option>';
+        } else if (selectedModule === 'Módulo II') {
+            semestreSelect.innerHTML = '   <option value="Semestre III Semestre IV">Semestre III Semestre IV</option>';
+        } else if (selectedModule === 'Módulo III') {
+            semestreSelect.innerHTML = '<option value="Semestre V Semestre VI">Semestre V Semestre VI</option>';
+        }
+    });
+</script>
 <?php require_once __DIR__ . '/../footer.php'; ?>

@@ -14,7 +14,6 @@ class ModuloController {
     }
 
     public function registrar() {
-        $estudiantes = $this->model->obtenerEstudiantes();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->model->registrar($_POST);
             header('Location: index.php?action=listar_modulos');
@@ -24,7 +23,6 @@ class ModuloController {
     }
 
     public function editar() {
-        $estudiantes = $this->model->obtenerEstudiantes();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->model->editar($_POST);
             header('Location: index.php?action=listar_modulos');

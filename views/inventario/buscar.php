@@ -14,7 +14,7 @@
         <th>Situación</th>
         <th>Estado de Observación</th>
         <th>Observaciones</th>
-        <th>Imagen</th>
+        
         <th>Estudiante</th>
         <th>Categoría</th>
         <th>Acciones</th>
@@ -35,7 +35,7 @@
             <td><?php echo $inventario['situacion']; ?></td>
             <td><?php echo $inventario['estado_de_observacion']; ?></td>
             <td><?php echo $inventario['observaciones']; ?></td>
-            <td><?php echo $inventario['imagen']; ?></td>
+      
             <td><?php echo $inventario['nombrecompleto']; ?></td>
             <td><?php echo $inventario['nombreCategoria']; ?></td>
             <td>
@@ -45,3 +45,5 @@
         </tr>
     <?php endforeach; ?>
 </table>
+
+

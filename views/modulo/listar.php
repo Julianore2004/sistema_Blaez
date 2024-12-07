@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $modulo['nombre']; ?></h5>
                         <p class="card-text"><?php echo $modulo['descripcion']; ?></p>
-                        <p class="card-text"><small class="text-muted">Estudiante: <?php echo $modulo['estudiante_nombrecompleto']; ?></small></p>
+                        <p class="card-text"><small class="text-muted">Semestre: <?php echo $modulo['semestre']; ?></small></p>
                         <a href="index.php?action=editar_modulo&id=<?php echo $modulo['id']; ?>" class="btn btn-warning">Editar</a>
                         <a href="index.php?action=eliminar_modulo&id=<?php echo $modulo['id']; ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este módulo?');">Eliminar</a>
                     </div>

@@ -10,24 +10,22 @@ class ModuloModel {
     }
 
     public function listar() {
-        $query = "SELECT m.*, e.nombrecompleto AS estudiante_nombrecompleto
-                  FROM modulo m
-                  LEFT JOIN estudiantes e ON m.id_estudiante = e.id";
+        $query = "SELECT * FROM modulo";
         $result = $this->conexion->query($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function registrar($data) {
-        $query = "INSERT INTO modulo (nombre, descripcion, id_estudiante, imagen) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO modulo (nombre, descripcion, semestre, imagen) VALUES (?, ?, ?, ?)";
         $stmt = $this->conexion->prepare($query);
-        $stmt->bind_param("ssis", $data['nombre'], $data['descripcion'], $data['id_estudiante'], $data['imagen']);
+        $stmt->bind_param("ssss", $data['nombre'], $data['descripcion'], $data['semestre'], $data['imagen']);
         $stmt->execute();
     }
 
     public function editar($data) {
-        $query = "UPDATE modulo SET nombre=?, descripcion=?, id_estudiante=?, imagen=? WHERE id=?";
+        $query = "UPDATE modulo SET nombre=?, descripcion=?, semestre=?, imagen=? WHERE id=?";
         $stmt = $this->conexion->prepare($query);
-        $stmt->bind_param("ssisi", $data['nombre'], $data['descripcion'], $data['id_estudiante'], $data['imagen'], $data['id']);
+        $stmt->bind_param("ssssi", $data['nombre'], $data['descripcion'], $data['semestre'], $data['imagen'], $data['id']);
         $stmt->execute();
     }
 
@@ -44,12 +42,6 @@ class ModuloModel {
         $stmt->bind_param("i", $id);
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
-    }
-
-    public function obtenerEstudiantes() {
-        $query = "SELECT id, nombrecompleto FROM estudiantes";
-        $result = $this->conexion->query($query);
-        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>

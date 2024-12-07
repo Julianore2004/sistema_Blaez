@@ -1,8 +1,14 @@
-<footer class="mt-auto py-3 bg-light">
-    <div class="container">
-        <p class="text-center text-muted">© 2023 Sistema de Inventario. Todos los derechos reservados.</p>
+<footer class="text-center py-3 mt-auto">
+    <div class="container text-center">
+        <div class="row" id="footer-des">
+            <p>© 2024 Instituto de Educación Superior Tecnológico “Huanta”</p>
     </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $(document).ready(function() {
@@ -21,3 +27,6 @@
 </script>
 </body>
 </html>
+
+
+

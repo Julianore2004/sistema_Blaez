@@ -1,11 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 07-12-2024 a las 01:27:19
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -115,22 +107,28 @@ INSERT INTO `inventario` (`id`, `nombre`, `codigo_patrimonial`, `denominacion`, 
 -- Estructura de tabla para la tabla `modulo`
 --
 
-CREATE TABLE `modulo` (
+/* CREATE TABLE `modulo` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `descripcion` text NOT NULL,
   `id_estudiante` int(11) DEFAULT NULL,
   `imagen` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+ */
+
+CREATE TABLE `modulo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` text NOT NULL,
+  `semestre` varchar(50) NOT NULL,
+  `imagen` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 
 --
 -- Volcado de datos para la tabla `modulo`
 --
-
-INSERT INTO `modulo` (`id`, `nombre`, `descripcion`, `id_estudiante`, `imagen`) VALUES
-(1, 'a', 'aSAS', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDd_AEjFnkaM0ZJtW9UXVojPzeH2wYzNIwtQ&s'),
-(2, 'a', 'a', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDd_AEjFnkaM0ZJtW9UXVojPzeH2wYzNIwtQ&amp;s'),
-(3, 'da', 'sas', 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDd_AEjFnkaM0ZJtW9UXVojPzeH2wYzNIwtQ&amp;s');
 
 -- --------------------------------------------------------
 
@@ -177,12 +175,6 @@ ALTER TABLE `inventario`
   ADD KEY `id_estudiante` (`id_estudiante`),
   ADD KEY `id_categoria` (`id_categoria`);
 
---
--- Indices de la tabla `modulo`
---
-ALTER TABLE `modulo`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_modulo_estudiante` (`id_estudiante`);
 
 --
 -- Indices de la tabla `users`
@@ -237,11 +229,16 @@ ALTER TABLE `inventario`
   ADD CONSTRAINT `fk_inventario_categorias` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_inventario_estudiantes` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
---
+/* --
 -- Filtros para la tabla `modulo`
 --
 ALTER TABLE `modulo`
   ADD CONSTRAINT `fk_modulo_estudiante` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
-
-CREA UN FILTRO PARA FILTRAR EL INVENTARIO POR CATEGORIA QUE EL FILTRO ESTE EL LISTAR DE IVENTARIO Y QUE AL SELECIONAR LA CATEGORIA  ME CARGE UNA NUEVA TABAL SEGUN LA CATEGORIA SELECCIONADA
+--
+-- Indices de la tabla `modulo`
+--
+ALTER TABLE `modulo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_modulo_estudiante` (`id_estudiante`);
+ */
