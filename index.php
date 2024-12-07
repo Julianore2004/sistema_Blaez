@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/config/session_manager.php';
 
-
 require_once __DIR__ . '/controller/InventarioController.php';
 require_once __DIR__ . '/controller/CategoriaController.php';
 require_once __DIR__ . '/controller/EstudianteController.php';
@@ -204,6 +203,7 @@ switch ($action) {
         $controller->buscar();
         break;
     default:
-      
+        echo "Acción no válida";
+        break;
 }
 ?>
