@@ -1,7 +1,6 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+require_once __DIR__ . '/config/session_manager.php';
+
 
 require_once __DIR__ . '/controller/InventarioController.php';
 require_once __DIR__ . '/controller/CategoriaController.php';
