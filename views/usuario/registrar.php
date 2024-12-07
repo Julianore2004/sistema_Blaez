@@ -25,8 +25,8 @@
         <div class="mb-3">
             <label for="rol" class="form-label">Rol:</label>
             <select class="form-select" name="rol" required>
-                <option value="encargado">Encargado</option>
-                <option value="administrador">Administrador</option>
+                <option value="Encargado">Encargado</option>
+                <option value="Administrador">Administrador</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Registrar</button>

@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="views/css/boostrap.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="d-flex flex-column min-vh-100">
   <nav class="navbar navbar-expand-lg" style="background-color: #0f67f6; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
@@ -21,10 +20,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarMenu">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-          <a class="nav-link text-white" href="index.php?action=inicio" style="opacity: 0.9">Inicio</a>
-
+            <a class="nav-link text-white" href="index.php?action=inicio" style="opacity: 0.9">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="index.php?action=listar" style="opacity: 0.9">Inventarios</a>
@@ -56,3 +54,5 @@
       </div>
     </div>
   </nav>
+</body>
+</html>

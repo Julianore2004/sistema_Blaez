@@ -7,7 +7,7 @@ require_once __DIR__ . '/controller/UsuarioController.php';
 // Requerir otros controladores según sea necesario
 
 $controller = null;
-$action = isset($_GET['action']) ? $_GET['action'] : 'listar_modulos';
+$action = isset($_GET['action']) ? $_GET['action'] : 'inicio';
 
 switch ($action) {
     // Agrega este caso al switch principal del index.php
