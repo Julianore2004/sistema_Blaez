@@ -15,9 +15,6 @@ class UsuarioController {
             $usuario = $this->model->autenticarUsuario($user_name, $user_password);
     
             if ($usuario) {
-                if (session_status() === PHP_SESSION_NONE) {
-                    session_start();
-                }              
                 $_SESSION['user_id'] = $usuario['user_id'];
                 $_SESSION['user_name'] = $usuario['user_name'];
                 $_SESSION['rol'] = $usuario['rol'];
@@ -70,9 +67,5 @@ class UsuarioController {
         require_once __DIR__ . '/../views/usuario/buscar.php';
     }
     
-   
-    
-
-
 }
 ?>
