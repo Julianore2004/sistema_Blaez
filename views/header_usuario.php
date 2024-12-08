@@ -29,10 +29,10 @@
 
       <div class="nav-item dropdown ms-auto">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <?php echo htmlspecialchars($_SESSION['user_name']); ?>
+          <i class="bi bi-person-circle"></i> <?php echo htmlspecialchars($_SESSION['user_name']); ?>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="perfil.php">Perfil</a></li>
+          <li><a class="dropdown-item" href="index.php?action=ver_perfil">Perfil</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="index.php?action=logout">Cerrar sesión</a></li>
         </ul>

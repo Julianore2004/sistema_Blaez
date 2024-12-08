@@ -47,8 +47,7 @@
           <?php echo htmlspecialchars($_SESSION['user_name']); ?>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="perfil.php">Perfil</a></li>
-          <li><hr class="dropdown-divider"></li>
+         
           <li><a class="dropdown-item" href="index.php?action=logout">Cerrar sesión</a></li>
         </ul>
       </div>

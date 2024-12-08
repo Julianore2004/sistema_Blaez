@@ -31,6 +31,14 @@ switch ($action) {
     case 'inicio':
         require_once __DIR__ . '/views/inicio.php';
         break;
+    case 'ver_perfil':
+        $usuarioController = new UsuarioController();
+        $usuarioController->verPerfil();
+        break;
+    case 'editar_perfil':
+        $usuarioController = new UsuarioController();
+        $usuarioController->editarPerfil();
+        break;
     case 'listar_inventarios_semestre_I_II':
         $controller = new InventarioController();
         $controller->listarInventariosSemestreIyII();

@@ -15,7 +15,7 @@ class UsuarioModel {
         $stmt->bind_param("s", $user_name);
         $stmt->execute();
         $result = $stmt->get_result();
-    
+
         if ($result->num_rows === 1) {
             $usuario = $result->fetch_assoc();
             if (password_verify($user_password, $usuario['user_password_hash'])) {
@@ -24,8 +24,6 @@ class UsuarioModel {
         }
         return null;
     }
-    
-   
 
     public function obtenerPorId($user_id) {
         $query = "SELECT * FROM users WHERE user_id = ?";
@@ -59,14 +57,28 @@ class UsuarioModel {
         $stmt->execute();
     }
 
+    public function editarPerfil($data) {
+        $query = "UPDATE users SET firstname=?, lastname=?, user_name=?, user_email=?";
+        if (!empty($data['user_password_hash'])) {
+            $query .= ", user_password_hash=?";
+        }
+        $query .= " WHERE user_id=?";
+
+        $stmt = $this->conexion->prepare($query);
+        if (!empty($data['user_password_hash'])) {
+            $stmt->bind_param("sssssi", $data['firstname'], $data['lastname'], $data['user_name'], $data['user_email'], $data['user_password_hash'], $data['user_id']);
+        } else {
+            $stmt->bind_param("ssssi", $data['firstname'], $data['lastname'], $data['user_name'], $data['user_email'], $data['user_id']);
+        }
+        $stmt->execute();
+    }
+
     public function eliminar($id) {
         $query = "DELETE FROM users WHERE user_id=?";
         $stmt = $this->conexion->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
     }
-
-  
 
     public function buscarPorNombre($nombre) {
         $query = "SELECT * FROM users WHERE firstname LIKE ? OR lastname LIKE ? OR user_name LIKE ?";
@@ -76,7 +88,5 @@ class UsuarioModel {
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
-    
-  
 }
 ?>

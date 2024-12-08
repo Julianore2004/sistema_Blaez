@@ -16,8 +16,8 @@
             <input type="text" class="form-control" name="user_name" value="<?php echo $usuario['user_name']; ?>" required>
         </div>
         <div class="mb-3">
-            <label for="user_password" class="form-label">Contraseña:</label>
-            <input type="password" class="form-control" name="user_password" required>
+            <label for="user_password" class="form-label">Nueva Contraseña (dejar vacío para no cambiar)</label>
+            <input type="password" class="form-control" name="user_password">
         </div>
         <div class="mb-3">
             <label for="user_email" class="form-label">Email:</label>

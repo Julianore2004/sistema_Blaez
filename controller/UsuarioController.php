@@ -32,6 +32,26 @@ class UsuarioController {
         }
     }
 
+    public function verPerfil() {
+        require_once __DIR__ . '/../views/usuario/perfil.php';
+    }
+
+    public function editarPerfil() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = $_POST;
+            $usuario = $this->model->obtenerPorId($data['user_id']);
+
+            // Si se proporciona una nueva contraseña, hashearla
+            if (!empty($data['user_password'])) {
+                $data['user_password_hash'] = password_hash($data['user_password'], PASSWORD_BCRYPT);
+            }
+            $this->model->editarPerfil($data);
+            header('Location: index.php?action=ver_perfil');
+        } else {
+            require_once __DIR__ . '/../views/usuario/editar_perfil.php';
+        }
+    }
+
     public function listar() {
         $usuarios = $this->model->listar();
         require_once __DIR__ . '/../views/usuario/listar.php';
@@ -48,7 +68,14 @@ class UsuarioController {
 
     public function editar() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $this->model->editar($_POST);
+            $data = $_POST;
+            $usuario = $this->model->obtenerPorId($data['user_id']);
+
+            // Si se proporciona una nueva contraseña, hashearla
+            if (!empty($data['user_password'])) {
+                $data['user_password_hash'] = password_hash($data['user_password'], PASSWORD_BCRYPT);
+            }
+            $this->model->editar($data);
             header('Location: index.php?action=listar_usuarios');
         } else {
             $usuario = $this->model->obtenerPorId($_GET['id']);
