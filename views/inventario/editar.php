@@ -62,7 +62,7 @@
         </div>
         <div class="mb-3">
             <label for="id_estudiante" class="form-label">Estudiante:</label>
-            <select class="form-select" name="id_estudiante" required>
+            <select class="form-select" name="id_estudiante"  id="estudianteSelect" required>
                 <?php foreach ($estudiantes as $estudiante): ?>
                     <option value="<?php echo $estudiante['id']; ?>" <?php if ($estudiante['id'] == $inventario['id_estudiante']) echo 'selected'; ?>><?php echo $estudiante['nombrecompleto']; ?></option>
                 <?php endforeach; ?>
@@ -70,7 +70,7 @@
         </div>
         <div class="mb-3">
             <label for="id_categoria" class="form-label">Categoría:</label>
-            <select class="form-select" name="id_categoria" required>
+            <select class="form-select" name="id_categoria"  required>
                 <?php foreach ($categorias as $categoria): ?>
                     <option value="<?php echo $categoria['id']; ?>" <?php if ($categoria['id'] == $inventario['id_categoria']) echo 'selected'; ?>><?php echo $categoria['nombreCategoria']; ?></option>
                 <?php endforeach; ?>
@@ -80,3 +80,9 @@
     </form>
 </div>
 <?php require_once __DIR__ . '/../footer.php'; ?>
+
+<script>
+    $(document).ready(function() {
+        $('#estudianteSelect').select2();
+    });
+</script>
