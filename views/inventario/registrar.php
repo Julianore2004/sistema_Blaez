@@ -1,5 +1,6 @@
 <?php require_once __DIR__ . '/../header.php'; ?>
 <div class="container mt-4">
+    <button class="btn btn-primary mt-3" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
     <h1>Registrar Inventario</h1>
     <form action="index.php?action=registrar" method="post">
         <div class="mb-3">
@@ -60,7 +61,7 @@
         </div>
         <div class="mb-3">
             <label for="id_estudiante" class="form-label">Estudiante:</label>
-            <select class="form-select" name="id_estudiante" required>
+            <select class="form-select" name="id_estudiante" id="estudianteSelect" required>
                 <?php foreach ($estudiantes as $estudiante): ?>
                     <option value="<?php echo $estudiante['id']; ?>"><?php echo $estudiante['nombrecompleto']; ?></option>
                 <?php endforeach; ?>
@@ -78,3 +79,10 @@
     </form>
 </div>
 <?php require_once __DIR__ . '/../footer.php'; ?>
+
+<script>
+    $(document).ready(function() {
+        $('#estudianteSelect').select2();
+    });
+</script>
+

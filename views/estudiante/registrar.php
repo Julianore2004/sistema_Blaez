@@ -1,5 +1,6 @@
 <?php require_once __DIR__ . '/../header.php'; ?>
 <div class="container mt-4">
+<button class="btn btn-primary mt-3" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i>Regresar</button>
     <h1>Registrar Estudiante</h1>
     <form action="index.php?action=registrar_estudiante" method="post">
         <div class="mb-3">
@@ -25,5 +26,3 @@
     </form>
 </div>
 <?php require_once __DIR__ . '/../footer.php'; ?>
-
-AHORA QUIRO QUE IMLEMENTES ESTA PAGINA PRINCIPAL CON LA LOGICA QUE MANEJAS, QUE LOS MODULOS SE MUESTREN PERO SIN LOS BOTONES DE EDITAR ELIMIANR Y AGREGAR 

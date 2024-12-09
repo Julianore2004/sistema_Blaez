@@ -211,7 +211,7 @@ switch ($action) {
         $controller->buscar();
         break;
     default:
-        echo "Acción no válida";
+        echo "";
         break;
 }
 ?>

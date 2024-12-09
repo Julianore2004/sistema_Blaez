@@ -9,6 +9,7 @@ if ($_SESSION['rol'] === 'Administrador') {
 }
 ?>
 <div class="container mt-4">
+<button class="btn btn-primary mt-3" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i>Regresar</button>
     <h1>Inventarios de Semestre V y VI</h1>
     <div class="row">
         <?php foreach ($inventarios as $inventario): ?>

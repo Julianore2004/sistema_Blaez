@@ -1,5 +1,6 @@
 <?php require_once __DIR__ . '/../header.php'; ?>
 <div class="container mt-4">
+<button class="btn btn-primary mt-3" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i>Regresar</button>
     <h1>Registrar Módulo</h1>
     <form action="index.php?action=registrar_modulo" method="post">
         <div class="mb-3">

@@ -1,9 +1,23 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 09-12-2024 a las 04:46:10
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
 -- Base de datos: `sistema_inventario_blaez`
 --
 
@@ -52,18 +66,17 @@ CREATE TABLE `estudiantes` (
 --
 
 INSERT INTO `estudiantes` (`id`, `nombrecompleto`, `programa_de_estudios`, `semestre`) VALUES
-(1, 'Juan Pérez', 'Ingeniería de Sistemas', 'Semestre IV'),
-(2, 'a', 'a', 'Semestre I'),
-(3, 'z', 'z', 'Semestre III'),
-(4, 'sa', 'as', 'Semestre I'),
+(2, 'julian', 'a', 'Semestre I'),
+(3, 'z', 'z', 'Semestre I'),
+(4, 'Zaun', 'as', 'Semestre I'),
 (6, 'AAA', 'AAA', 'Semestre IV'),
 (7, 'zzz', 'zz', 'Semestre III'),
-(61, 'Sofía García', 'Ingeniería de Sistemas', 'Semestre II'),
-(114, 'Juan Pérez', 'Ingeniería de Sistemas', 'Semestre I'),
+(61, 'Sofia Garcia', 'Ingeniería de Sistemas', 'Semestre VI'),
+(114, 'Juan Perez', 'Ingeniería de Sistemas', 'Semestre I'),
 (214, 'María López', 'Ingeniería de Sistemas', 'Semestre V'),
 (341, 'Carlos Gómez', 'Ingeniería de Sistemas', 'Semestre II'),
 (414, 'Ana Martínez', 'Ingeniería de Sistemas', 'Semestre V'),
-(5141, 'Luis Rodríguez', 'Ingeniería de Sistemas', 'Semestre III');
+(5141, 'Luis Rodriguez', 'Ingeniería de Sistemas', 'Semestre III');
 
 -- --------------------------------------------------------
 
@@ -96,26 +109,36 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id`, `nombre`, `codigo_patrimonial`, `denominacion`, `marca`, `modelo`, `tipo`, `color`, `serie`, `dimensiones`, `valor`, `situacion`, `estado_de_observacion`, `observaciones`, `imagen`, `id_estudiante`, `id_categoria`) VALUES
-(2, 'ASSAS', 'a', 'a', 'a', 's', 's', 's', 'SS', 's', 'sss', 'ss', 'ss', 'sss', 'ss', 1, 1),
-(3, 'QAZXCV', 'XXX', 'XX', 'XXX', 'X', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 1, 4),
-(4, 'PERRA', 'z', 'zz', 'zz', 'zz', 'zzz', 'zz', 'z', 'zz', 'zz', 'zz', 'zz', 'z', 'https://www.impacto.com.pe/storage/pc/md/173154252122960.webp', 2, 7),
-(8, 'LAJS', 'XX', 'XX', 'XX', 'XZ', 'ZX', 'ZXZX', 'XZXZX', 'ZXXZ', 'XZX', 'SAS', 'XZX', 'XZX', 'ZX', 3, 9);
+(2, 'ASSAS', 'a', 'a', 'a', 's', 's', 's', 'SS', 's', 'sss', 'ss', 'ss', 'sss', 'ss', NULL, 1),
+(3, 'QAZXCV', 'XXX', 'XX', 'XXX', 'X', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', 'XXX', NULL, 4),
+(4, 'PERRA', 'z', 'zz', 'zz', 'zz', 'zzz', 'zz', 'z', 'zz', 'zz', 'zz', 'zz', 'z', 'https://www.impacto.com.pe/storage/pc/md/173154252122960.webp', NULL, 7),
+(8, 'LAJS', 'XX', 'XX', 'XX', 'XZ', 'ZX', 'ZXZX', 'XZXZX', 'ZXXZ', 'XZX', 'SAS', 'XZX', 'XZX', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDd_AEjFnkaM0ZJtW9UXVojPzeH2wYzNIwtQ&s', 2, 9),
+(14, 'asasa', 'sas', 'as', 'sa', 'sa', 'sa', 'sa', 'sa', 'as', 'sa', 'as', 'sa', 'sa', 'https://images-cdn.ubuy.co.in/65701a31ecc094123e253c0a-30-sheets-thin-mdf-wood-boards-for.jpg', 5141, 1),
+(15, 'wda', 'dad', 'ada', 'dad', 'dad', 'asd', 'asd', 'asd', 'asd', 'sd', 'sad', 'adas', 'da', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDd_AEjFnkaM0ZJtW9UXVojPzeH2wYzNIwtQ&s', 414, 7),
+(16, 'sas', 'sasas', 'ass', 'x', 'xxx', 'xx', 'sa', 'asdsx', 'asx', 'xas', 'ax', 'xa', 'ax', 'https://arcosac.com/wp-content/uploads/2022/10/TABMDF002001-AL-09-MDF-FIBROFACIL-MASISA-2-390x293.jpg', 61, 10);
 
 -- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `modulo`
+--
+
 CREATE TABLE `modulo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `descripcion` text NOT NULL,
   `semestre` varchar(50) NOT NULL,
-  `imagen` varchar(500) NOT NULL,
-  PRIMARY KEY (`id`)
+  `imagen` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
 
 --
 -- Volcado de datos para la tabla `modulo`
 --
+
+INSERT INTO `modulo` (`id`, `nombre`, `descripcion`, `semestre`, `imagen`) VALUES
+(7, 'Módulo I', 'sasSAS', 'Semestre I Semestre II', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDd_AEjFnkaM0ZJtW9UXVojPzeH2wYzNIwtQ&s'),
+(8, 'Módulo II', 'adas', 'Semestre III Semestre IV', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDd_AEjFnkaM0ZJtW9UXVojPzeH2wYzNIwtQ&s'),
+(9, 'Módulo III', 'dada', 'Semestre V Semestre VI', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDd_AEjFnkaM0ZJtW9UXVojPzeH2wYzNIwtQ&s');
 
 -- --------------------------------------------------------
 
@@ -139,8 +162,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `user_name`, `user_password_hash`, `user_email`, `date_added`, `rol`) VALUES
-(1, 'admin', 'admin', 'admin', '$2y$10$qpkWKZ6CpsurgLnPxYl92uMJLCu.OpS9Y4x7MW4SVMtU5dpv8nvQ2', 'admin@admin.com', '2024-12-06 21:14:33', 'Administrador');
+(1, 'admin', 'admin', 'admin', '$2y$10$OAib.Ejay0PIWJazuBwM0.Epvofa9sD/IBWpOyW6ivNW0tin1lrTi', 'admin@admin.com', '2024-12-07 19:18:27', 'Administrador'),
+(24, 'julian', 'julian', 'juliann', '$2y$10$A60pq.sRQZMG2m270ElEou1m/2xQJ1B0TlUm/UEeaJEMaY0cJGXFu', 'aQWASWa@aa.com', '2024-12-08 01:12:08', 'Usuario'),
+(25, 'alexis', 'alexis', 'alexis', '$2y$10$oR0abMiH0IN2a/hEtHwY7.uL5msHWmwOOu0hdNrji5SVEEHTrsxMe', 'aQWASWa@aa.coma', '2024-12-08 01:35:48', 'Usuario');
 
+--
+-- Índices para tablas volcadas
+--
 
 --
 -- Indices de la tabla `categorias`
@@ -162,6 +190,11 @@ ALTER TABLE `inventario`
   ADD KEY `id_estudiante` (`id_estudiante`),
   ADD KEY `id_categoria` (`id_categoria`);
 
+--
+-- Indices de la tabla `modulo`
+--
+ALTER TABLE `modulo`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `users`
@@ -191,19 +224,19 @@ ALTER TABLE `estudiantes`
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `modulo`
 --
 ALTER TABLE `modulo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Restricciones para tablas volcadas
@@ -215,29 +248,8 @@ ALTER TABLE `users`
 ALTER TABLE `inventario`
   ADD CONSTRAINT `fk_inventario_categorias` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_inventario_estudiantes` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
-/* --
--- Filtros para la tabla `modulo`
---
-ALTER TABLE `modulo`
-  ADD CONSTRAINT `fk_modulo_estudiante` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
---
--- Indices de la tabla `modulo`
---
-ALTER TABLE `modulo`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_modulo_estudiante` (`id_estudiante`);
- */
- --
--- Estructura de tabla para la tabla `modulo`
---
 
-/* CREATE TABLE `modulo` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `descripcion` text NOT NULL,
-  `id_estudiante` int(11) DEFAULT NULL,
-  `imagen` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
- */
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
