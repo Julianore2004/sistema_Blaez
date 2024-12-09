@@ -7,6 +7,26 @@ if ($_SESSION['rol'] === 'Administrador') {
     require_once __DIR__ . '/../header_usuario.php';
 }
 ?>
+<style>
+       /* Asegúrate de que las imágenes sean responsivas */
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Define un tamaño fijo para las imágenes dentro del contenedor */
+    .imagen-inventario {
+        width: 100%; /* O el tamaño que desees */
+        height: 530px; /* O el tamaño que desees */
+        object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    }
+    
+    /* Opcional: Asegúrate de que el contenedor tenga un tamaño fijo */
+    .col-md-6 {
+        padding: 10px; /* O el padding que desees */
+    }
+    
+</style>
 <div class="container contenedor-principal">
 <button class="btn btn-primary mt-3" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i>Regresar</button>
         <h1>Detalle del Inventario</h1>
